@@ -4,13 +4,12 @@ from database.connection import get_db_connection
 
 class Article:
     def __init__(self, title=None, content=None, author=None, magazine=None):
-        # Initialize title, content, author, and magazine
+        
         self._title = title
         self._content = content
         self._author_id = author.id if author else None
         self._magazine_id = magazine.id if magazine else None
 
-        # Insert into the database if a new article is being created (no ID provided)
         if title and content and author and magazine:
             conn = get_db_connection()
             cursor = conn.cursor()
